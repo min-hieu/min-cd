@@ -3,7 +3,7 @@ original: https://github.com/ThibaultGROUEIX/ChamferDistancePytorch/tree/719b0f1
 
 ## Build and Install
 ```
-pip3 install -e git+https://github.com/min-hieu/min-cd.git
+pip3 install git+https://github.com/min-hieu/min-cd.git
 ```
 
 ## min-cd vs. pytorch3d 
