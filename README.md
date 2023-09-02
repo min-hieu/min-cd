@@ -14,10 +14,10 @@ p2 = torch.rand(1, 10000, 3).to('cuda')
 
 cd_func = chamferDist()
 mincd_out = cd_func(p1, p2) # output dist1, dist2
-py3d_out = pytorch3d.loss.chamfer_distance(p1,p2,'mean') # output dist1.mean() + dist2.mean()
+py3d_out = pytorch3d.loss.chamfer_distance(p1,p2,'mean') # output (dist1 + dist2).mean()
 
-a,b = mincd_out
-assert a.mean()+b.mean() == py3d_out
+mincd_out = torch.stack(mincd_out, dim=0) # shape 2, 1, 10000
+assert mincd_out.sum(dim=0).mean() == py3d_out
 ```
 
 ## Performance
